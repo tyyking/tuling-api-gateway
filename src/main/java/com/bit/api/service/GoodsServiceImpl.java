@@ -16,11 +16,22 @@ public class GoodsServiceImpl {
 	public Goods addGoods(Goods goods,Integer id){
 		return goods;
 	}
-	
+
+	@APIMapping("bit.api.goods.get")
+	public Goods getGodds(Integer id){
+		return new Goods("vvv","1111");
+	}
 	public static class Goods implements Serializable{
 		private String goodsName;
-		private String goodsId; 
-		
+		private String goodsId;
+		public Goods(){
+
+		}
+		public Goods(String goodsName, String goodsId) {
+			this.goodsName = goodsName;
+			this.goodsId = goodsId;
+		}
+
 		public String getGoodsName() {
 			return goodsName;
 		}

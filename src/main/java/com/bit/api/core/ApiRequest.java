@@ -7,11 +7,16 @@ public class ApiRequest {
 
     private String memberId;
     private String accessToken;
+    private String sign;
     private String uCode;
     private String eCode;
     private String timestamp;
     private String clientIp;
-    private String uuId;
+    private boolean isLogin;
+    private String params;
+
+    private String methodName;
+
 
     public String getMemberId() {
         return memberId;
@@ -27,6 +32,14 @@ public class ApiRequest {
 
     public void setAccessToken(String accessToken) {
         this.accessToken = accessToken;
+    }
+
+    public String getSign() {
+        return sign;
+    }
+
+    public void setSign(String sign) {
+        this.sign = sign;
     }
 
     public String getuCode() {
@@ -61,11 +74,27 @@ public class ApiRequest {
         this.clientIp = clientIp;
     }
 
-    public String getUuId() {
-        return uuId;
+    public boolean isLogin() {
+        return isLogin;
     }
 
-    public void setUuId(String uuId) {
-        this.uuId = uuId;
+    public void setLogin(boolean login) {
+        isLogin = login;
+    }
+
+    public String getParams() {
+        return params;
+    }
+
+    public void setParams(String params) {
+        this.params = params;
+    }
+
+    public String getMethodName() {
+        return methodName;
+    }
+
+    public void setMethodName(String methodName) {
+        this.methodName = methodName;
     }
 }

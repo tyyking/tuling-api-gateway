@@ -6,7 +6,7 @@
 logs/
 target/
 temp
-*.iml
+.iml
 .idea/
 temp/
 .settings/

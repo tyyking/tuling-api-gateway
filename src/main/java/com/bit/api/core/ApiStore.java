@@ -68,6 +68,7 @@ public class ApiStore {
         apiRun.apiName = apiMapping.value();
         apiRun.targetMethod = method;
         apiRun.targetName = beanName;
+        apiRun.apiMapping=apiMapping;
         apiMap.put(apiMapping.value(), apiRun);
     }
 
@@ -116,7 +117,8 @@ public class ApiStore {
 
         Object target; // UserServiceImpl 实例
         Method targetMethod; // 目标方法 getUser
-        // 多线程安全问题
+        APIMapping apiMapping;
+
         public Object run(Object... args) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 			if (target == null) { // spring ioc 容器里面去服务Bean 比如GoodsServiceImpl
 				target = applicationContext.getBean(targetName);
@@ -144,6 +146,9 @@ public class ApiStore {
             return targetMethod;
         }
 
+        public APIMapping getApiMapping() {
+            return apiMapping;
+        }
     }
 
 }

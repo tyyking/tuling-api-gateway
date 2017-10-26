@@ -15,6 +15,5 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface APIMapping {
     String value();
-    // 登陆检测
-    boolean checkLogin() default false;
+    boolean useLogin() default false;
 }
