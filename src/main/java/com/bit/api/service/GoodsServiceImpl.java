@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
+import com.bit.api.core.ApiRequest;
 import org.springframework.stereotype.Service;
 
 import com.bit.api.core.APIMapping;
@@ -12,8 +13,8 @@ import com.bit.api.core.APIMapping;
 //goodsServiceImpl 
 public class GoodsServiceImpl {
 	//无缝集成 
-	@APIMapping("bit.api.goods.add")
-	public Goods addGoods(Goods goods,Integer id){
+	@APIMapping(value = "bit.api.goods.add",useLogin = true)
+	public Goods addGoods(Goods goods, Integer id, ApiRequest apiRequest){
 		return goods;
 	}
 
