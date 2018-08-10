@@ -1,0 +1,23 @@
+pipeline {
+    agent any 
+    stages {
+        stage('checkout') { 
+            steps { 
+                echo 'checkout' 
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'gogs_luban', url: 'http://git.jiagouedu.com/java-vip/tuling-api-gateway']]])
+            }
+        }
+        stage('build'){
+            steps {
+                 echo 'build'
+                 sh 'mvn clean install'
+            }
+        }
+        stage('save') {
+            steps {
+               echo 'save'
+               archiveArtifacts 'target/*.war'
+            }
+        }
+    }
+}
