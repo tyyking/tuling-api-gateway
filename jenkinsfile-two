@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+    stages {
+        stage('checkout') {
+            steps {
+                echo 'checkout'
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'luban-tomcat', url: 'git@github.com:tyyking/tuling-api-gateway.git']]])
+            }
+        }
+        stage('build'){
+            steps {
+                 echo 'build'
+                 sh 'mvn clean install'
+            }
+        }
+        stage('save') {
+            steps {
+               echo 'save'
+               archiveArtifacts 'target/*.war'
+            }
+        }
+    }
+}
