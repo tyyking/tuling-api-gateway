@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>tuling.common</groupId>
 	<artifactId>tuling-api-gateway</artifactId>
-	<version>0.0.1-RELEASE</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>tuling-api-gateway</name>
 	<description>API网关</description>
